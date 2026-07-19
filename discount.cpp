@@ -23,7 +23,7 @@ int ask_for_status () {
     return status;
 }
 
-int ask_for_age () {
+int ask_for_age () { 
     int age;
     cout << "Age: ";
     cin >> age;

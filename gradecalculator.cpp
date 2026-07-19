@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream.hh>
 #include <math.h>
 #include <stdio.h>
 #include <conio.h>
@@ -225,9 +225,9 @@ char ask_again () {
 }
 
 int main () {
-clrscr();
+clrscr ();
     char name[67];
-    float m1, m1_total, m2, m2_total, m3, m3_total, lab1, lab1_total, lab2, lab2_total, lab3, lab3_total, exam, 
+    float m1, m1_total, m2, m2_total, m3, m3_total, lab1, lab1_total, lab2, lab2_total, lab3, lab3_total, exam;
     float exam_total, quiz_average, lab_average, final_percentage, x;
     char ans;
 

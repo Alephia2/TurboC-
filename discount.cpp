@@ -1,11 +1,10 @@
 #include <conio.h>
-#include <iostream.h>
+#include <iostream>
 #include <stdio.h>
 #define standard_price 220
 
 void initial_display () {
     printf ("--Welcome!--\n");
-    printf ("N/A - 0   Student - 1 \n");
 }
 
 void ask_for_name ( char* name) {
@@ -14,10 +13,10 @@ void ask_for_name ( char* name) {
 }
 
 
-int ask_for_status () {
-    int status;
-    printf ("Plese Enter if you're a student: ");
-    scanf ("%d", &status);
+char ask_for_status () {
+    char status;
+    printf ("Are you a student? (y/n): ");
+    scanf (" %c", &status);
     return status;
 }
 
@@ -43,13 +42,14 @@ void ask_for_matinee_day (char* matinee_day) {
 
 int get_after_discount (int status, int age) {
     int discount = standard_price;
-    if (status == 1 && age < 18) {
+    if ((status == 'y' || status =='Y') && age < 18) {
 	discount = standard_price - 40;
+
     } else if (age >= 60) {
 	discount = standard_price -  60;
-    } else if (status == 1) {
+    } else if (status == 'y' || status =='Y') {
 	discount = standard_price - 20;
-    } else if (status == 0) {
+    } else {
 	discount = standard_price;
     }
     return discount;
@@ -72,11 +72,10 @@ char ask_try () {
 }
 
 int main () {
-clrscr();
     char name[67], matinee_day[3];
-    int age, status, discount;
+    int age, discount;
     int matinee;
-    char try_again;
+    char try_again, status;
 
     start:
     initial_display ();

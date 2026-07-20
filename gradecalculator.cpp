@@ -1,4 +1,4 @@
-#include <iostream.hh>
+#include <iostream.h>
 #include <math.h>
 #include <stdio.h>
 #include <conio.h>
@@ -6,7 +6,7 @@
 void initial_display () {
     cout << "---WELCOME TO GRADE CALCULATOR---" << "\n";
     cout << "Format for inputing grades: Score THEN Total Score" << "\n";
-    cout << "SINGLE NAME ONLY" << "\n\n";
+    cout << "SINGLE OR WITH UNDERSCORE NAME ONLY" << "\n\n";
 }
 
 void ask_for_name (char* name) {

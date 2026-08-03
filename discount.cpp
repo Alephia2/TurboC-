@@ -66,7 +66,6 @@ char ask_try () {
 }
 
 int main () {
-clrscr();
     char name[67], matinee_day[3];
     int age, discount, status;
     char matinee,try_again;

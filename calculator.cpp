@@ -1,7 +1,5 @@
-#include <iostream>
-#include <cmath>
-
-using namespace std;
+#include <iostream.h>
+#include <math.h>
 
 double get_number(char* prompt) {
     double value;
@@ -48,6 +46,7 @@ void determine_result(double num1, double num2, char op) {
 }
 
 int main() {
+    clrscr();
     double num1, num2;
     char op;
 
@@ -60,6 +59,6 @@ int main() {
     cin >> op;
 
     determine_result(num1, num2, op);
-
+    getch();
     return 0;
 }

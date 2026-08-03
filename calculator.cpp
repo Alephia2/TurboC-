@@ -3,7 +3,7 @@
 
 using namespace std;
 
-double get_number(const string &prompt) {
+double get_number(char* prompt) {
     double value;
     cout << prompt;
     cin >> value;

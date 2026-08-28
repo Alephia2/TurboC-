@@ -1,27 +1,11 @@
 #include <iostream>
 #include <stdio.h>
+#include <iomanip>
 
 using namespace std;
 
-void display_initial () {
-printf("  __  __          _____  _____          _         _    ____    _  ___    _ _____ _______            _   _ _____  _____  ______ _____  \n");
-    printf(" |  \\/  |   /\\   |  __ \\ / ____|   /\\   | |    | |    / __ \\  | |/ / |  | |  __ \\__   __|    /\\    | \\ | |  __ \\|  __ \\|  ____|_   _| \n");
-    printf(" | \\  / |  /  \\  | |__) | |  __   /  \\  | |    | |   | |  | | | ' /| |  | | |__) | | |      /  \\   |  \\| | |  | | |__) | |__    | |   \n");
-    printf(" | |\\/| | / /\\ \\ |  _  /| | |_ | / /\\ \\ | |    | |   | |  | | |  < | |  | |  _  /  | |     / /\\ \\  | . ` | |  | |  _  /|  __|   | |   \n");
-    printf(" | |  | |/ ____ \\| | \\ \\| |__| |/ ____ \\| |____| |___| |__| | | . \\| |__| | | \\ \\  | |    / ____ \\ |  |\\  | |__| | | \\ \\| |____ _| |_  \n");
-    printf(" |_|__|_/_/___ \\_\\_|_ \\_\\\\_____/_/    \\_\\______|______\\____/  |_|\\_\\\\____/|_|  \\_\\|_|    /_/    \\_\\|  | \\_|_____/|_|  \\_\\______|_____| \n");
-    printf(" |  _ \\ / ____|/ ____|     |  ____|          /_ |  /\\                                                                                 \n");
-    printf(" | |_) | (___ | |     _ __ | |__      ______  | | /  \\                                                                                \n");
-    printf(" |  _ < \\___ \\| |    | '_ \\|  __|    |______| | |/ /\\ \\                                                                               \n");
-    printf(" | |_) |____) | |____| |_) | |____            | |/ ____ \\                                                                             \n");
-    printf(" |____/|_____/ \\_____| .__/|______|           |_/_/    \\_\\                                                                            \n");
-    printf("                     | |                                                                                                              \n");
-    printf("                     |_|                                                                                                              \n");
-
-
-}
 void display_initial2 () {
-    cout << "   ----------WELCOME----------\n";
+    cout << "\n   ----------WELCOME----------\n";
     cout << " ________________________________  \n";
     cout << "|1         |        10%' discount|  \n";
     cout << "|2         |        20%' discount| \n";
@@ -29,17 +13,12 @@ void display_initial2 () {
     cout << "|__________|_____________________| \n\n";
 }
 
-
-
-
-
-void askForName (char* name, int size) {
+void askForName ( char* name, int size) {
     cout << "Enter Name     :     ";
-    cin.get(name, size); 
-    cin.ignore(1000, '\n'); 
+     cin.getline(name, size); 
 }
 
-float askForValue (char* prompt) {
+float askForValue (const char* prompt) {
     float value;
     cout << prompt; 
     cin >> value;
@@ -79,11 +58,16 @@ return finalPrice;
 }
 
 void print (char name[][35], float price[], float quantity[], int discount[], float amount[], float totalAmount, float finalAmount, float discAmount[], float newPrice[]){
-    cout << "=============================================================================\n";
-    cout << "                               FINAL RECEIPT                                 \n";
-    cout << "=============================================================================\n";
-    cout << "    ITEM         PRICE        QTY        AMOUNT        DISC        NEW PRICE \n";
-    cout << "------------------------------------------------------------------------------\n";
+    cout << "============================================================================================\n";
+    cout << "                                        FINAL RECEIPT                                       \n";
+    cout << "============================================================================================\n";
+    cout << left << setw(17) << "ITEM"
+         << left << setw(17) << "PRICE"
+         << left << setw(17) << "QTY"
+         << left << setw(17) << "AMOUNT"
+         << left << setw(17) << "DISC PRICE"
+         << left << setw(17) << "NEW PRICE";
+    cout << "\n------------------------------------------------------------------------------------------\n";
     
     for (int i = 0 ; i < 2 ; i++){    
     int discPercent = (discount[i] == 1) ? 10
@@ -92,12 +76,16 @@ void print (char name[][35], float price[], float quantity[], int discount[], fl
                          : 0;
     
     
-        cout << name[i] << "        "<< price[i] << "        "<< quantity[i] << "        " << amount[i] << "        "<< discAmount[i] << "        " << newPrice[i] << endl;
+        cout << left << setw(17) << name[i]  //the name of the item
+             << left << setw(17)<< price[i]      //price PER ITEM
+             << left << setw(17)<< quantity[i]  // how many items
+             << left << setw(17)<< amount[i]    // price * quantity
+             << left << setw(17)<< discAmount[i] //how much is deducted after discount
+             << left << setw(17)<< newPrice[i]   << endl; // price after discount
     }
-
-cout << "------------------------------------------------------------------------------\n";
-cout << "                         TOTAL AMOUNT OF PURCHASE:         "<< totalAmount << endl;
-cout << "                         TOTAL ALLOVER DISCOUNT :         "<< (totalAmount - finalAmount) << endl;
+cout << "------------------------------------------------------------------------------------------\n";
+cout << "                         TOTAL AMOUNT OF PURCHASE:            "<< totalAmount << endl;
+cout << "                         TOTAL ALLOVER DISCOUNT :             "<< (totalAmount - finalAmount) << endl;
 cout << "                         TOTAL NEW PRICE OF PURCHASE:         "<< finalAmount << endl;
 
 
@@ -111,7 +99,6 @@ int main(){
     int discount[2];
     float price[2], quantity[2], amount[2], totalAmount, finalPrice, finalAmount, disvar;
     float discAmount[2], newPrice[2];
-    display_initial();
     totalAmount = 0;
     finalAmount = 0;
 

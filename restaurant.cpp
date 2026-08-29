@@ -76,12 +76,12 @@ void print (char name[][35], float price[], float quantity[], int discount[], fl
                          : 0;
     
     
-        cout << left << setw(17) << name[i]  //the name of the item
-             << left << setw(17)<< price[i]      //price PER ITEM
-             << left << setw(17)<< quantity[i]  // how many items
-             << left << setw(17)<< amount[i]    // price * quantity
-             << left << setw(17)<< discAmount[i] //how much is deducted after discount
-             << left << setw(17)<< newPrice[i]   << endl; // price after discount
+        cout << left << setw(17) << name[i]                      //the name of the item
+             << left << setw(17)<< price[i]                      //price PER ITEM
+             << left << setw(17)<< quantity[i]                   //how many items
+             << left << setw(17)<< amount[i]                     //price * quantity
+             << left << setw(17)<< discAmount[i]                 //how much is deducted after discount
+             << left << setw(17)<< newPrice[i]   << endl;        //price after discount
     }
 cout << "------------------------------------------------------------------------------------------\n";
 cout << "                         TOTAL AMOUNT OF PURCHASE:            "<< totalAmount << endl;

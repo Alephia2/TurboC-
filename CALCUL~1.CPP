@@ -12,7 +12,6 @@ double get_number(char* prompt) {
 void determine_result(double num1, double num2, char op) {
     switch (op) {
         case '+':
-            cout << "Sum: " << (num1 + num2) << endl;
             break;
         case '-':
             cout << "Difference: " << (num1 - num2) << endl;

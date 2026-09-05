@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    for (int i = 0; i < 8; i++) {
+        if (i % 2 == 0)
+            cout << i + 1 << "\n";
+        else if (i % 3 == 0)
+            cout << i * i << "\n";
+        else if (i % 5 == 0)
+            cout << 2 * i - 1 << "nt";
+        else
+            cout << i << "\n";
+    }
+}

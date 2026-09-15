@@ -1,0 +1,64 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+const int SIZE = 5;          // number of students (rows) in the table
+const double PASSING_GRADE = 75.0;
+
+int main() {
+    // ---- Array variables, one per column (as the activity requires) ----
+    string name[SIZE] = { "Jose Manalo", "Katrina Bernardo", "Janice Dele Cruz",
+                           "John Santos", "Christian ZAbala" };
+
+    double LAB1[SIZE] = { 85, 90, 75, 65, 70 };
+    double LAB2[SIZE] = { 80, 91, 80, 75, 79 };
+    double Q1[SIZE]   = { 86, 92, 81, 76, 82 };
+    double Q2[SIZE]   = { 80, 93, 82, 77, 83 };
+    double MEX[SIZE]  = { 75, 94, 83, 78, 77 };
+
+    double FLAB1[SIZE] = { 65, 95, 84, 80, 99 };
+    double FLAB2[SIZE] = { 90, 96, 85, 81, 95 };
+    double FQ1[SIZE]   = { 91, 97, 86, 82, 94 };
+    double FQ2[SIZE]   = { 92, 98, 87, 83, 93 };
+    double FEX[SIZE]   = { 93, 99, 88, 84, 92 };
+
+    // These columns are EMPTY in the table and must be computed/filled
+    // by the program, as stated in the activity.
+    double MG[SIZE]   = { 0 };
+    double TFG[SIZE]  = { 0 };
+    double FG[SIZE]   = { 0 };
+    string remarks[SIZE];
+
+    // ---- Processing: fill in the empty columns ----
+    for (int i = 0; i < SIZE; i++) {
+        MG[i]  = (2.0 / 3.0) * ((Q1[i] + Q2[i]) / 2.0)
+                + (1.0 / 3.0) * ((LAB1[i] + LAB2[i]) / 2.0);
+
+        TFG[i] = (2.0 / 3.0) * ((FQ1[i] + FQ2[i]) / 2.0)
+                + (1.0 / 3.0) * ((FLAB1[i] + FLAB2[i]) / 2.0);
+
+        FG[i]  = (MG[i] + TFG[i]) / 2.0;
+
+        remarks[i] = (FG[i] >= PASSING_GRADE) ? "PASSED" : "FAILED";
+    }
+
+    // ---- Display: array variable name, MG, TFG, FG, and remarks ----
+    cout << fixed << setprecision(2);
+    cout << left  << setw(20) << "NAME"
+         << right << setw(10) << "MG"
+         << setw(10) << "TFG"
+         << setw(10) << "FG"
+         << setw(12) << "REMARKS" << endl;
+    cout << string(62, '-') << endl;
+
+    for (int i = 0; i < SIZE; i++) {
+        cout << left  << setw(20) << name[i]
+             << right << setw(10) << MG[i]
+             << setw(10) << TFG[i]
+             << setw(10) << FG[i]
+             << setw(12) << remarks[i] << endl;
+    }
+
+    return 0;
+}

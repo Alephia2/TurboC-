@@ -16,13 +16,13 @@ void initialDisplay() {
     cout << "=============================================================\n";
     cout << "                         WELCOME                             \n";
     cout << "=============================================================\n";
-    cout << "         ACTIVITY 1 (Circle)              -    1\n"
-         << "         ACTIVITY 2 (Yard Conversion)     -    2\n"
-         << "         ACTIVITY 3 (Projectile)          -    3\n"
+    cout << "         ACTIVITY 1 (Circle)              -     1\n"
+         << "         ACTIVITY 2 (Yard Conversion)     -     2\n"
+         << "         ACTIVITY 3 (Projectile)          -     3\n"
          << "         ACTIVITY 4 (Grade Computation)   -    4\n"
-         << "         ACTIVITY 5 (Calculator)          -    5\n"
+         << "         ACTIVITY 5 (Calculator)          -     5\n"
          << "-------------------------------------------------------------\n"
-         << "         EXIT                             -    6\n\n";
+         << "         EXIT                             -       6\n\n";
 }
 
 void activity1() {
